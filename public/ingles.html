@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo de Inglés</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <form id="form-ingles">
+      <h1>Módulo de Inglés</h1>
+
+      <h3>Seleccione el tipo de servicio:</h3>
+      <label><input type="radio" name="subtipo" value="lecciones" required /> Solo lecciones</label>
+      <label><input type="radio" name="subtipo" value="examen" /> Examen</label>
+      <label><input type="radio" name="subtipo" value="modulo_completo" /> Módulo (lecciones + examen)</label>
+
+      <div id="login-container" style="display: none; margin-top: 25px;">
+        <h3>Ingrese sus credenciales</h3>
+
+        <!-- Usuario -->
+        <div class="input-box">
+          <i class='bx bxs-user icon-left'></i>
+          <input type="text" id="correo" placeholder="Usuario" required />
+        </div>
+
+        <!-- Contraseña -->
+        <div class="input-box">
+          <i class='bx bxs-lock-alt icon-left'></i>
+          <input type="text" id="contrasena" placeholder="Contraseña" required />
+        </div>
+
+        <div id="fecha-container" style="display: none;">
+          <label for="fecha">Fecha del examen:</label>
+          <div class="input-box">
+            <input type="date" id="fecha" />
+            <i class='bx bx-calendar'></i>
+          </div>
+
+          <label for="hora">Hora del examen:</label>
+          <div class="input-box">
+            <input type="time" id="hora" />
+            <i class='bx bx-time'></i>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Enviar solicitud</button>
+
+      <p id="mensaje-error" class="error-text"></p> <!-- Mensaje de error aquí -->
+
+      <a href="index.html" class="btn-secondary">← Regresar</a>
+      
+
+
+    </form>
+    <div id="resumen-container" style="display: none; margin-top: 10px; text-align: left;">
+        <h2 style="text-align: center; color: #00dfd8; margin-bottom: 15px;">¡Gracias por confiar en nosotros!</h2>
+        <p style="margin-bottom: 15px;">A continuación se presenta el resumen del servicio solicitado:</p>
+        <ul id="resumen-list" style="line-height: 1.8; list-style: none; padding-left: 0;"></ul>
+    </div>
+  </div>
+
+  <script src="js/ingles.js"></script>
+</body>
+
+</html>

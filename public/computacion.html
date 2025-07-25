@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computación - INGEFENIX</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <form id="form-computacion">
+            <h1>Módulo de Computación</h1>
+
+            <!-- LOGIN -->
+            <div id="login-container">
+                <div class="input-box">
+                    <i class="bx bxs-user icon-left"></i>
+                    <input type="text" id="usuario" placeholder="Usuario" required />
+                </div>
+                <div class="input-box">
+                    <i class="bx bxs-lock-alt icon-left"></i>
+                    <input type="password" id="clave" placeholder="Contraseña" required />
+                </div>
+                <button id="btn-verificar" type="button" class="btn">Verificar credenciales</button>
+                <p id="mensaje-error" class="error-text"></p>
+            </div>
+
+            <!-- MÓDULO -->
+            <div id="modulo-container" style="display: none; text-align:center;">
+                <h3>Seleccione el módulo que desea:</h3>
+                <label><input type="radio" name="modulo" value="1" required /> Módulo 1</label>
+                <label><input type="radio" name="modulo" value="2" /> Módulo 2</label>
+
+                <p id="modulo-error" class="error-text" style="display: none;"></p>
+                <button id="continuar-btn" type="button" class="btn" style="margin-top: 15px;">Enviar solicitud</button>
+            </div>
+
+            <a href="index.html" class="btn-secondary">← Regresar</a>
+        </form>
+        <!-- Resumen -->
+        <div id="resumen-container" style="display: none; margin-top: 30px; text-align: left;">
+            <h2 style="text-align: center; color: #00dfd8; margin-bottom: 15px;">¡Gracias por confiar en nosotros!
+            </h2>
+            <p style="margin-bottom: 15px;">A continuación se presenta el resumen del servicio solicitado:</p>
+            <ul id="resumen-list" style="line-height: 1.8; list-style: none; padding-left: 0;"></ul>
+        </div>
+    </div>
+
+    <script src="js/computacion.js"></script>
+</body>
+
+</html>

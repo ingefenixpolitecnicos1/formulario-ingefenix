@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../img/fondo-azul.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  padding: 20px;
+}
+
+
+@keyframes neonFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container,
+.wrapper {
+  background: rgba(0, 0, 50, 0.3);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
+  width: 100%;
+  max-width: 420px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  padding: 0 45px 0 20px;
+  border: 2px solid rgba(0, 255, 255, 0.25);
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 16px;
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+
+.input-box input:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-box input::placeholder {
+  color: #03547d;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color:  #ffffff;
+  pointer-events: none;
+}
+
+button,
+.btn,
+.btn-primary {
+  width: 100%;
+  height: 45px;
+  background:  #68d8ff;
+  color: #000428;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(51, 217, 220, 0.3);
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+.btn-primary:hover {
+  background: #29cddf;
+}
+
+.btn-secondary {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: white;
+  background-color: #007cf0;
+  border-radius: 40px;
+  padding: 12px 0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #005ddf;
+}
+
+@media (max-width: 768px) {
+  .container,
+  .wrapper {
+    padding: 30px 25px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .input-box input {
+    font-size: 14px;
+    padding: 0 40px 0 15px;
+  }
+
+  .input-box i {
+    font-size: 18px;
+    right: 15px;
+  }
+
+  button,
+  .btn {
+    height: 42px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .wrapper {
+    width: 95%;
+  }
+}
+
+/* Fecha y hora con íconos */
+.input-box input[type="date"],
+.input-box input[type="time"] {
+  width: 100%;
+  height: 50px;
+  padding: 0 45px 0 20px;
+  border: 2px solid rgba(0, 255, 255, 0.25);
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 16px;
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+}
+
+.input-box input[type="date"]::placeholder,
+.input-box input[type="time"]::placeholder {
+  color: #d4f1ff;
+}
+
+/* Íconos para fecha y hora */
+.input-box input[type="date"] + i,
+.input-box input[type="time"] + i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fbfbfb;
+  pointer-events: none;
+}
+
+/* Oculta íconos nativos de calendario y reloj */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+
+.error-text {
+  color: #ff8080;
+  background-color: rgba(255, 0, 0, 0.05);
+  border-left: 4px solid #ff4d4d;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-weight: 500;
+  display: none;
+}
+
+
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  padding: 0 45px 0 45px; /* espacio para el icono izquierdo */
+  border: 2px solid rgba(0, 255, 255, 0.25);
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 16px;
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box input::placeholder {
+  color: #d4f1ff;
+}
+
+.icon-left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #00dfd8;
+  pointer-events: none;
+}
+
+.icon-toggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #00dfd8;
+  cursor: pointer;
+}
+
+
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #00bfff; /* color personalizado del radio al estar seleccionado */
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#resumen-container {
+  background: rgba(0, 0, 50, 0.3);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
+  color: #fff;
+  max-width: 420px;
+  margin: auto;
+  text-align: left;
+  margin-top: 40px; /* AJUSTABLE */
+}
+
+
+.main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.slogan h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 992px) {
+  .slogan h2 {
+    font-size: 36px;
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+}
+
+
+
+.logo-img {
+  display: block;
+  margin: 0 auto 20px auto; /* Centrado y espacio inferior */
+  max-width: 240px;          /* Ajusta el tamaño máximo */
+  height: auto;
+  object-fit: contain;
+}
