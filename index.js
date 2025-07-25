@@ -23,7 +23,6 @@ app.post('/verificar-computacion', async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: true,
-      executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', // Ajusta si usas Linux o Mac
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
