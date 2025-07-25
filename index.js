@@ -65,5 +65,5 @@ app.post('/verificar-computacion', async (req, res) => {
 // Inicia el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor INGEFENIX activo en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor INGEFENIX activo en el puerto ${PORT}`);
 });
