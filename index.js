@@ -4,6 +4,10 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const cors = require('cors');
 const path = require('path');
 
+// Evita que Puppeteer intente descargar Chrome
+process.env['PUPPETEER_SKIP_CHROMIUM_DOWNLOAD'] = 'true';
+
+// Activa el plugin de sigilo para evitar bloqueos por bots
 puppeteer.use(StealthPlugin());
 
 const app = express();
@@ -11,11 +15,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta para verificación de credenciales de computación
+// Ruta de verificación
 app.post('/verificar-computacion', async (req, res) => {
   const { usuario, clave } = req.body;
 
-  // 👇 Esto imprime en la consola del servidor
   console.log('📥 Datos recibidos del frontend:');
   console.log('Usuario:', usuario);
   console.log('Clave:', clave);
@@ -23,6 +26,7 @@ app.post('/verificar-computacion', async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: true,
+      executablePath: process.env.CHROME_BIN || '/usr/bin/google-chrome',
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
@@ -48,6 +52,7 @@ app.post('/verificar-computacion', async (req, res) => {
     ]);
 
     console.log("📌 URL después del login:", page.url());
+
     const exito = !page.url().includes('login');
     await browser.close();
     res.json({ exito });
@@ -56,10 +61,9 @@ app.post('/verificar-computacion', async (req, res) => {
     console.error('💥 Error:', err.message);
     res.status(500).json({ exito: false });
   }
-
 });
 
-// Inicia el servidor
+// Puerto para Render o local
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor INGEFENIX activo en el puerto ${PORT}`);
