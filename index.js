@@ -23,6 +23,7 @@ app.post('/verificar-computacion', async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: true,
+      executablePath: process.env.CHROME_BIN || '/usr/bin/google-chrome',
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
