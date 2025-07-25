@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mensajeError.style.display = "block";
 
     try {
-      const res = await fetch("http://localhost:3000/verificar-computacion", {
+      const res = await fetch("https://formulario-ingefenix.onrender.com/verificar-computacion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario, clave }),
