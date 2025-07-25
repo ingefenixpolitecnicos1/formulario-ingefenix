@@ -4,8 +4,7 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const cors = require('cors');
 const path = require('path');
 
-
-// Activa el plugin de sigilo para evitar bloqueos por bots
+// Activar plugin de sigilo
 puppeteer.use(StealthPlugin());
 
 const app = express();
@@ -24,6 +23,7 @@ app.post('/verificar-computacion', async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: true,
+      executablePath: '/opt/render/.cache/puppeteer/chrome/linux-138.0.7204.168/chrome-linux64/chrome',
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
@@ -60,7 +60,7 @@ app.post('/verificar-computacion', async (req, res) => {
   }
 });
 
-// Puerto para Render o local
+// Puerto
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor INGEFENIX activo en el puerto ${PORT}`);
